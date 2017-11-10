@@ -1,4 +1,4 @@
-from flask import flask
+from flask import Flask
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -25,16 +25,17 @@ form = """
       </head>
       <body>
         <form action="/caesar" method="post">
-        <input type="text" name="rot" value=0>
-
-        <textarea name="text" form="">TEXT HERE</textarea>
-        <!-- create your form here -->
+          <label for="Rotate_by">Rotate_by: </label>
+          <input type="text" name="rot" value=0>
+          <textarea name="text"></textarea>
+          <input type="submit" value="Submit"/>
+        </form>
       </body>
     </html>
 """
 
 @app.route("/")
 def index():
-    return "Hello World"
+    return form
 
 app.run()
